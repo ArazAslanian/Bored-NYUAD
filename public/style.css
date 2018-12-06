@@ -1,0 +1,90 @@
+body{
+  background-image: url("back.jpg");
+  background-color: #fae5eb;
+  font-size: 18px;
+  color:  black;
+  font-family: Helvetica, Arial;
+}
+input{
+	margin: 5px;
+}
+button{
+	padding: 5px 10px;
+} 
+#container{
+	display: none;
+}
+#mainTitle{
+	text-align: center;
+    margin-bottom: 0;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    width: 100%;
+
+
+}
+
+#slogan{
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 20px;
+    width: 100%;
+
+}
+
+#gridCont {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 30px;
+  padding: 10px;
+  justify-content: center;
+
+}
+
+#gridCont > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  opacity: 0.5;
+  margin-top: 100px;
+
+}
+
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+.note {
+    font-size: .8em;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- <meta name="viewport" content="width=device-width"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bored @ NYUAD</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<h2 id='mainTitle'>Bored @ NYUAD</h3>
+		<h3 id='slogan'>Meet new people, hang out with regulars, make new memories</h3>
+		<div id = 'gridCont'>
+			<div id='join'>Join a party</div>
+			<div id='host'>Host a party</div>
+		</div>
+
+	<div id="blakh">
+		<div id="blakh">
+			<div>
+				Name of host: <input type='text' id='userName'/>
+			</div>
+			<div>
+				Event Title: <input type='text' id="favWord"/>
+			</div>
+			<div>
+				Description: <input type='text' id="description"/>
+			</div>
+			<div>
+				Number of people Needed: <input type='text' id="peopleNum"/>
+			</div>
+			<label for="meeting-time">When? </label>
+			<label for="start">Start date:</label>
+			<input type="date" id="date" name="trip-start"
+      			value="2018-07-22">
+
+
+			<label for="appt-time">From: </label>
+			<input id="from" type="time" name="appt-time" value="13:30">
+			<label for="appt-time">To </label>
+			<input id="to" type="time" name="appt-time" value="13:30">
+
+       		<div>
+       			
+       		</div>
+       			Where? <input type='text' id="place"/>
+       		<div>
+				Contact info: 
+				<select id="conMethod">
+  					<option value="Facebook Messenger">Facebook Messenger</option>
+  					<option value="by phone">Phone Number</option>
+  					
+  					<option value="WhatApp Messenger">Whatsapp Messenger</option>
+  					<option value="No need to contact, just show up!">Just show up!</option>
+				</select>
+			</div>
+
+			<div>
+				Contact details: <input type='text' id="conNum"/>
+			</div>
+
+			<button id="enterButton">Enter</button>
+		</div>
+	</div>
+
+
+
+		
+		<script>
+			//Grab the response object var
+			var page = '<%=page%>';
+		</script>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
