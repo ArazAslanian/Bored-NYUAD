@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<!-- <meta name="viewport" content="width=device-width"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>script>
 		<title>Bored @ NYUAD</title>
 		<link rel="stylesheet" href="style.css">
 	</head>
@@ -11,62 +12,186 @@
 	<body>
 		<h2 id='mainTitle'>Bored @ NYUAD</h3>
 		<h3 id='slogan'>Meet new people, hang out with regulars, make new memories</h3>
-		<div id = 'gridCont'>
+		<div id="create"><button id = "createButton" class = "yesRad"> Create Event</button></div>
+
+
+<!-- 		<div id = 'gridCont'>
 			<div id='join'>Join a party</div>
 			<div id='host'>Host a party</div>
-		</div>
+		</div> -->
+
+		<div><a><img id="logo" src="logo.png"></a></div>
+		<div id = 'stats'><button class = "yesRad">Stats</button></div>
 
 	<div id="blakh">
 		<div id="blakh">
-			<div>
-				Name of host: <input type='text' id='userName'/>
-			</div>
-			<div>
-				Event Title: <input type='text' id="favWord"/>
-			</div>
-			<div>
-				Description: <input type='text' id="description"/>
-			</div>
-			<div>
-				Number of people Needed: <input type='text' id="peopleNum"/>
-			</div>
-			<label for="meeting-time">When? </label>
-			<label for="start">Start date:</label>
-			<input type="date" id="date" name="trip-start"
-      			value="2018-07-22">
 
 
-			<label for="appt-time">From: </label>
-			<input id="from" type="time" name="appt-time" value="13:30">
-			<label for="appt-time">To </label>
-			<input id="to" type="time" name="appt-time" value="13:30">
 
-       		<div>
-       			
-       		</div>
-       			Where? <input type='text' id="place"/>
-       		<div>
-				Contact info: 
-				<select id="conMethod">
-  					<option value="Facebook Messenger">Facebook Messenger</option>
-  					<option value="by phone">Phone Number</option>
-  					
-  					<option value="WhatApp Messenger">Whatsapp Messenger</option>
-  					<option value="No need to contact, just show up!">Just show up!</option>
-				</select>
-			</div>
 
-			<div>
-				Contact details: <input type='text' id="conNum"/>
-			</div>
 
-			<button id="enterButton">Enter</button>
+
+			<table cellspacing="27">
+				<tr>
+					<td>
+						<div>Name of host</div>
+					</td>
+					<td>
+						<input class = 'textInput' type='text' id='userName'/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>Category of Event</div>
+					</td>
+					<td>
+						<div>
+							<div>
+								<select id="eventType">
+									<option value="random">Random</option>
+									<option value="charity">Charity</option>
+									<option value="cooking">Cooking</option>
+									<option value="education">Education</option>
+									<option value="music">Music</option>
+									<option value="recreational">Recreational</option>
+									<option value="relaxation">Relaxation</option>
+									<option value="social">Social</option>
+								</select>
+							</div>
+						</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>
+						<div>Event Title</div>
+					</td>
+					<td>
+						<input class = 'textInput' type='text' id="favWord"/>
+					</td>
+					<td>
+						<button id="ideaNeed" class = "yesRad">Need Ideas?</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>Description</div>
+					</td>
+					<td>
+						<textarea type='text' id="description"> </textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>Number of people Needed</div>
+					</td>
+					<td>
+						<input class = 'textInput' type='text' id="peopleNum"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="start">Start date:</div>	
+					</td>
+					<td>
+						<input type="date" id="date" name="trip-start" value="2018-12-22">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>From</div>
+					</td>
+					<td>
+						<input id="from" type="time" name="appt-time" value="17:30">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>To</div>						
+					</td>
+					<td>
+						<input id="to" type="time" name="appt-time" value="18:30">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div>Place</div>
+					</td>
+					<td>
+						<input class = 'textInput' type='text' id="place"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>Method of Contact</div>
+					</td>
+					<td>
+						<select id="conMethod">
+		  					<option value="Facebook Messenger">Facebook Messenger</option>
+		  					<option value="by phone">Phone Number</option>
+		  					
+		  					<option value="WhatApp Messenger">Whatsapp Messenger</option>
+		  					<option value="No need to contact, just show up!">Just show up!</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>Contact Details</div>
+					</td>
+					<td>
+						<input class = 'textInput' type='text' id="conNum"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button id="enterButton" class="yesRad">Enter</button>
+					</td>
+				</tr>
+			</table>
+			
 		</div>
 	</div>
 
+	<div id = "mainList">	
+
+	</div>
+	<div id="graphic"></div>
+	<div id = "oldList">	
+		<h3 id = "pastEvents">Past Events</h3>
+	</div>
+
+<!-- 	<button id = "eventFull">Event Full</button>
+ -->
+<!-- 	<div id="ideasDiv">
+		<div id="eventDropdown">
+			<select id="eventType">
+					<option value="random">Random</option>
+					<option value="charity">Charity</option>
+					<option value="cooking">Cooking</option>
+					<option value="education">Education</option>
+					<option value="music">Music</option>
+					<option value="recreational">Recreational</option>
+					<option value="relaxation">Relaxation</option>
+					<option value="social">Social</option>
+			</select>
+		</div>
+		<div id="ideaTime">
+			<button id="giveIdea">Let's go</button>
+		</div>
+		<div>
+			<p id="theIdea"></p>
+		</div> -->
+<!-- 		<div>
+			<button id="useIdea">Use!</button>
+		</div>
+	</div> -->
 
 
-		
+
+
+
 		<script>
 			//Grab the response object var
 			var page = '<%=page%>';
@@ -74,5 +199,12 @@
 
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="main.js"></script>
+
+
+
+
+
+
+
 	</body>
 </html>

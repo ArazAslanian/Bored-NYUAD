@@ -1,19 +1,106 @@
+  html{
+
+    background-color: #f1f1f1;
+    font-family: Helvetica, Arial;
+
+}
+
+td {
+padding: 0 50px 0 50px;
+
+}
+
 body{
-  background-image: url("back.jpg");
-  background-color: #fae5eb;
+/*  background-image: url("back.jpg");*/
+
   font-size: 18px;
-  color:  black;
-  font-family: Helvetica, Arial;
+  color:  #666;
+
 }
-input{
-	margin: 5px;
+
+
+#mainList {
+  overflow: hidden;
+  border-radius: 2px;
 }
+
+#oldList {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.eventFull {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+
+}
+
+
+#eventType {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#conMethod {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+#description {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  width: 350px;
+  height: 150px;
+}
+
+.textInput {
+  width: 350px;
+}
+
+
 button{
-	padding: 5px 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #008080;
+  color: white;
+  font-size: 14px;
+
 } 
+
+.yesRad {
+  border-radius: 6px;
+}
+
+.thisButton {
+  float: right;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+button:focus {
+  outline:0;
+}
+
+
 #container{
 	display: none;
 }
+
 #mainTitle{
 	text-align: center;
     margin-bottom: 0;
@@ -24,12 +111,62 @@ button{
 
 }
 
+
+#logo {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  padding-left: 10px;
+
+}
+
+
+
+#stats {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+#create {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.buttonStyle {
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+#eventTitle {
+  display: inline;
+}
+
+#ideaPos {
+  display: inline;
+}
+
+#eventDropdown {
+  display: inline;
+}
+
+#ideaTime {
+  display: inline;
+}
+
 #slogan{
     text-align: center;
     margin-top: 0;
     padding-bottom: 20px;
     width: 100%;
 
+}
+
+
+.cellWidth {
+  width: 300px;
 }
 
 #gridCont {
@@ -67,7 +204,7 @@ label {
 }
 
 .collapsible {
-    background-color: #777;
+    background-color: #008080;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -76,15 +213,54 @@ label {
     text-align: left;
     outline: none;
     font-size: 15px;
+    border-bottom: 1px solid #666;
+
 }
 
 .active, .collapsible:hover {
-    background-color: #555;
+    background-color: #666;
 }
 
 .content {
+    margin-top: 10px;
     padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
+}
+
+.contentOld {
+    margin-top: 10px;
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+#pastEvents {
+  margin-left: 15px;
+}
+
+
+/*
+for the bar chart*/
+.bar {
+    fill: #008080;
+
+}
+
+.axis {
+    font-size: 13px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    display: none;
+
+}
+
+.label {
+    font-size: 13px;
+
 }
