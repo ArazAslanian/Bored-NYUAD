@@ -102,7 +102,7 @@ var i;
 
 
 function dashRemover(a) {
-	var a =(a.date+a.startT).replace("-", "");
+	var a =(a.date+a.endT).replace("-", "");
 	a = a.replace("-","");
 	a = a.replace(":", "");
 	a = parseInt(a);
