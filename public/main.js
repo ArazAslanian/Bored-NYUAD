@@ -33,7 +33,7 @@ today = today + hours;
 today = today + minutes;
 today = parseInt(today)
 
-console.log(today)
+
 
 
 
@@ -98,10 +98,7 @@ var coll = document.getElementsByClassName("collapsible");
 var i;
 
 
-	// var x = 1;
-	// var y = x.toString()
-	// var d = x + y;
-	// console.log(d);
+
 function dashRemover(a) {
 	var a =(a.date+a.startT).replace("-", "");
 	a = a.replace("-","");
@@ -581,6 +578,7 @@ function getQuestions(){
 			// theQuestion = data.results[0].question;
 			// document.getElementById("d").innerHTML = theQuestion;
 			document.getElementById("favWord").value = data.activity;
+			document.getElementById("eventType").value = data.type;
 			
 			// correctAnswer = data.results[0].correct_answer;
 			//console.log(correctAnswer)
