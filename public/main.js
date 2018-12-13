@@ -570,7 +570,7 @@ function getQuestions(){
 
 	//make ajax request
 	$.ajax({
-		url: "http://www.boredapi.com/api/activity" + requestType,
+		url: "https://www.boredapi.com/api/activity" + requestType,
 		type: 'GET',
 		dataType: 'json',
 		error: function(err){
