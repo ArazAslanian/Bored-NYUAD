@@ -73,6 +73,8 @@ $('#gridCont').hide('fast', function() {
 $( "#createButton" ).click(function() {
 
 	$("#create").fadeOut(2000)
+	$("#graphic").fadeOut(2000)
+	$("#oldList").fadeOut(2000)
 	$("#mainList").fadeOut('slow', function() {
 	});
 	setTimeout(function(){$("#blakh").fadeIn('slow', function() {
@@ -578,7 +580,8 @@ function getQuestions(){
 			// theQuestion = data.results[0].question;
 			// document.getElementById("d").innerHTML = theQuestion;
 			document.getElementById("favWord").value = data.activity;
-			document.getElementById("eventType").value = data.type;
+			console.log(document.getElementById("eventType").value = data.type);
+
 			
 			// correctAnswer = data.results[0].correct_answer;
 			//console.log(correctAnswer)
@@ -658,7 +661,10 @@ $( "#stats" ).click(function() {
     $('#mainList').fadeOut(1000);
     setTimeout(function(){
     $('#graphic').fadeIn(2000)  
-    $('#oldList').fadeIn(2000)}, 1000);
+    $('#oldList').fadeIn(2000)
+    $('#create').fadeIn(2000)
+
+}, 1000);
 	
   
   
