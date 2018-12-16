@@ -1,3 +1,4 @@
+//figuring out the current day
 var today = new Date();
 console.log(today);
 var dd = today.getDate();
@@ -5,9 +6,6 @@ var mm = today.getMonth()+1;
 var yyyy = today.getFullYear();
 var hours = today.getHours();
 var minutes = today.getMinutes();
-
-
-
 
 if(dd<10) {
     dd = '0'+dd
@@ -37,13 +35,12 @@ today = parseInt(today)
 
 
 
-
-
-
-
-
-
+//hiding all the elements that are not supposed to be on front page
 $('#blakh').hide('fast', function() {
+
+});
+
+$('#aboutPage').hide('fast', function() {
 
 });
 
@@ -54,8 +51,6 @@ $('#graphic').hide('fast', function() {
 $('#oldList').hide('fast', function() {
 
 });
-
-
 
 $('#ideasDiv').hide('fast', function() {
 
@@ -70,34 +65,11 @@ $('#gridCont').hide('fast', function() {
 });
 
 
-$( "#createButton" ).click(function() {
-
-	$("#create").fadeOut(2000)
-	$("#graphic").fadeOut(2000)
-	$("#oldList").fadeOut(2000)
-	$("#mainList").fadeOut('slow', function() {
-	});
-	setTimeout(function(){$("#blakh").fadeIn('slow', function() {
-	})
-	}, 1000);
-	
-});
 
 
 
-$( "#join" ).click(function() {
-
-	$("#gridCont").fadeOut('slow', function() {
-	});
-	setTimeout(function(){$("#mainList").fadeIn('slow', function() {
-	})
-	$("#home").fadeIn(2000)}, 1000);
-});
-
-
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
 
 
 
@@ -110,10 +82,26 @@ function dashRemover(a) {
 	return a;
 }
 
-
-function buttonClick() {
-	console.log("zabat")
+function makeCollapsible(){
+	var coll = document.getElementsByClassName("collapsible");
+    var i;
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
 }
+
+
+// function buttonClick() {
+// 	console.log("zabat")
+// }
 
 
 function makeHTML(theData){
@@ -147,37 +135,6 @@ function makeHTML(theData){
 		}
 
 	}
-
-
-
-	// var l = 1;
-	// pastEvents.forEach(function(dd){				//loop
-	// 	thisContentOld = "thisContent" + l.toString();
-	// 	thisButtonOld = "thisButton" + l.toString();
-	// 	var addOnOld = $('<button id = "lala' + l.toString() + '"><b>'+ dd.word + '</b><br><i>Hosted by: ' + dd.user + '</i>' + '</button>');
-	// 	var addOnOld = $('<button><table><tr><td class="cellWidth">' + dd.word + '</td><td>' + dd.date + '</td></tr><tr><td>' + dd.user + '</td><td>' + dd.startT + ' - ' + dd.endT + '</td></tr></table>')
-	// 	$('#oldList').append(addOnOld);
-	// 	addOnOld.addClass('collapsible');
-	// 	var addOnInOld = $('<div></div>')
-	// 	$('#oldList').append(addOnInOld);
-	// 	addOnInOld.addClass('content');
-	// 	addOnInOld.addClass(thisContentOld);
-	// 	$("."+thisContentOld).append('<table><tr><td>Event Description:</td><td>' + dd.desc + '</td></tr><tr><td>People needed:</td><td>' + dd.pple  + '</td></tr><td>Place:</td><td>' + dd.where + '</td></tr><tr><td>Contact Info:</td><td>' + dd.contWay + ' - ' + dd.contDets + '</td></tr></table>');
-
-	// 	l++;
-
-	// });
-	
-
-	 // for (i = 0; i < theData.length; i++) {
-
-
-		// if (i.date < today) {
-		// 	console.log("hi")
-		// }
-	 // }
-
-	// console.table(theData);
 
 	var c = 1;
 	projectedList.forEach(function(d){				//loop
@@ -223,12 +180,12 @@ function makeHTML(theData){
 		addOnIn.addClass(thisContent);
 		$("."+thisContent).append('<table><tr><td>Event Description:</td><td>' + d.desc + '</td></tr><tr><td>People needed:</td><td>' + d.pple  + '</td></tr><td>Place:</td><td>' + d.where + '</td></tr><tr><td>Contact Info:</td><td>' + d.contWay + ' - ' + d.contDets + '</td></tr></table>');
 		
-
-		var buttonFull = $("<button id = 'nope" + c.toString() + "'>" +"Event Full</button>");
-		$('.'+thisContent).append(buttonFull);
-		buttonFull.addClass('yesRad');
-		buttonFull.addClass("thisButton");
-		buttonFull.addClass("eventFull");
+		//Event Full button: comment out when you figure out how to update the database
+		// var buttonFull = $("<button id = 'nope" + c.toString() + "'>" +"Event Full</button>");
+		// $('.'+thisContent).append(buttonFull);
+		// buttonFull.addClass('yesRad');
+		// buttonFull.addClass("thisButton");
+		// buttonFull.addClass("eventFull");
 
 		
 		$("#nope" + c.toString()).click(function(){
@@ -241,12 +198,7 @@ function makeHTML(theData){
 
 	var j = 1;
 	pastEvents.forEach(function(k){				//loop
-		// console.log(d);
-		// if (d.date == happ) {
-		// 	var m = "HAPPENING TODAY - "
-		// } else {
-		// 	var m = "";
-		// }
+
 		thisContentOld = "thisContentOld" + j.toString();
 		thisButtonOld = "thisButtonOld" + j.toString();
 
@@ -260,115 +212,20 @@ function makeHTML(theData){
 		addOnInOld.addClass(thisContentOld);
 		$("."+thisContentOld).append('<table><tr><td>Event Description:</td><td>' + k.desc + '</td></tr><tr><td>People needed:</td><td>' + k.pple  + '</td></tr><td>Place:</td><td>' + k.where + '</td></tr><tr><td>Contact Info:</td><td>' + k.contWay + ' - ' + k.contDets + '</td></tr></table>');
 		
-
-		// var buttonFull = $("<button id = 'nope" + c.toString() + "'>" +"Event Full</button>");
-		// $('.'+thisContent).append(buttonFull);
-		// buttonFull.addClass('yesRad');
-		// buttonFull.addClass("thisButton");
-		// buttonFull.addClass("eventFull");
-
 		
 			
 
 		j++;
 
 	});
-	//return addOn;
-	//console.log(addOn);
 
 
 
-
-	//return addOn;
-	//console.log(addOn);
-	
-
-
-	// var coll = document.getElementsByClassName("collapsible");
- //    var k;
-	// for (k = 0; i < coll.length; k++) {
-	//   coll[k].addEventListener("click", function() {
-	//     this.classList.toggle("active");
-	//     var content = this.nextElementSibling;
-	//     if (content.style.display === "block") {
-	//       content.style.display = "none";
-	//     } else {
-	//       content.style.display = "block";
-	//     }
-	//   });
-	// }
-
-
-	var coll = document.getElementsByClassName("collapsible");
-    var i;
-	for (i = 0; i < coll.length; i++) {
-	  coll[i].addEventListener("click", function() {
-	    this.classList.toggle("active");
-	    var content = this.nextElementSibling;
-	    if (content.style.display === "block") {
-	      content.style.display = "none";
-	    } else {
-	      content.style.display = "block";
-	    }
-	  });
-	}
+	makeCollapsible();
 	makeGraph();
 
 }
-	// document.getElementsByClassName("eventFull").addEventListener("click", buttonClick);
 
-	// var full = document.getElementsByClassName('eventFull');
- // 	full.addEventListener("click", function() {
- // 		console.log('yalla')
- //    });
-
-		// return random;
-		// return charity;
-		// return cooking;
-		// return education;
-		// return music;
-		// return social;
-
-
-
-
-
-
-
-// console.log(social);
-// console.log(charity);
-
-
-
-// function getWord(term){
-// 	$.ajax({
-// 		url: '/api/word/' + term,
-// 		type: 'GET',
-// 		dataType: 'json',
-// 		error: function(data){
-// 			console.log(data);
-// 			alert("Oh No! Try a refresh?");
-// 		},
-// 		success: function(data){
-// 			console.log("WooHoo!");
-// 			console.log(data);
-
-// 			var theData = data.map(function(d){
-// 				return d.doc;
-// 			});
-// 			var str = '';
-// 			if (theData.length === 1){
-// 				str = " time";
-// 			}
-// 			else{
-// 				str = " times";
-// 			}
-// 			$('body').append('<h2>This word has been favorited ' + theData.length + str + '!</h2>');
-// 			var htmlString = makeHTML(theData);
-// 			$('body').append(htmlString);
-// 		}
-// 	});
-// }
 
 //step 1 get
 //getting all data to show on the page every time the page loads
@@ -415,25 +272,6 @@ function saveData(obj){
 		success: function(resp){
 			console.log('WooHoo!');
 			console.log(resp);
-			// var addOn = $('<button><table><tr><td>' + d.word + '</td><td>' + d.date + '</td></tr><tr><td>' + d.user + '</td><td>' + d.startT + ' - ' + d.endT + '</td></tr></table>')
-			// $('#mainList').append(addOn);
-			// addOn.addClass('collapsible');
-			// var addOnIn = $('<div></div>')
-			// $('#mainList').append(addOnIn);
-			// addOnIn.addClass('content');
-			// addOnIn.addClass('current');
-			// $(".current").append('<table><tr><td>Event Description:</td><td>' + d.desc + '</td></tr><tr><td>People needed:</td><td>' + d.pple  + '</td></tr><td>Place:</td><td>' + d.where + '</td></tr><tr><td>Contact Info:</td><td>' + d.contWay + ' - ' + d.contDets + '</td></tr></table>');
-
-			// var addOn = $('<button><table><tr><td>' + obj.word + '</td><td>' + obj.date + '</td></tr><tr><td>' + obj.user + '</td><td>' + obj.startT + ' - ' + obj.endT + '</td></tr></table>')
-			// $('#mainList').append(addOn);
-			// addOn.addClass('collapsible');
-			// var addOnIn = $('<div></div>')
-			// $('#mainList').append(addOnIn);
-			// addOnIn.addClass('content');
-			// addOnIn.addClass('current');
-			// $(".current").append('<table><tr><td>Event Description:</td><td>' + obj.desc + '</td></tr><tr><td>People needed:</td><td>' + obj.pple  + '</td></tr><td>Place:</td><td>' + obj.where + '</td></tr><tr><td>Contact Info:</td><td>' + obj.contWay + ' - ' + obj.contDets + '</td></tr></table>');
-
-		
 
 
 			var theDate = obj.date.replace("-", "");
@@ -459,35 +297,6 @@ function saveData(obj){
 			buttonFull.addClass("thisButton");
 			buttonFull.addClass("eventFull");
 
-
-
-
-
-
-
-
-	
-
-	// 		var coll = document.getElementsByClassName("collapsible");
-	// 	    var i;
-	// 		for (i = 0; i < coll.length; i++) {
-	// 		  coll[i].addEventListener("click", function() {
-	// 		    this.classList.toggle("active");
-	// 		    var content = this.nextElementSibling;
-	// 		    if (content.style.display === "block") {
-	// 		      content.style.display = "none";
-	// 		    } else {
-	// 		      content.style.display = "block";
-	// 		    }
-	// 		  });
-	// }
-
-
-
-
-
-			// var htmlString = '<li>' + obj.user + ' : ' + obj.word + '</li>';
-			// $('ol').append(htmlString);
 		}
 	});
 }
@@ -515,6 +324,7 @@ $(document).ready(function(){
 
 
 
+
 		var timeStamp = new Date();
 		//Create data object to be saved
 		var data = {
@@ -537,6 +347,7 @@ $(document).ready(function(){
 	    	// location.reload(true);
 	    	$("#mainList").fadeIn(2000)
 	    	$("#create").fadeIn(2000)
+	    	location.reload(true);
 
 	    }, 1000);
 
@@ -566,6 +377,10 @@ function getQuestions(){
 		requestType = '?type=' + requestType
 	}
 
+	if (document.getElementById("createIdea").innerHTML = 'Try again') {
+		requestType = '/'
+	}
+
 
 	//make ajax request
 	$.ajax({
@@ -577,16 +392,15 @@ function getQuestions(){
 		},
 		success: function(data){
 			console.log("WooHoo 2!");
-			// theQuestion = data.results[0].question;
-			// document.getElementById("d").innerHTML = theQuestion;
+			var categoryList = ["random", "charity", "cooking", "educational", "music", "relaxation", "recreational", "social"];
+			console.log(categoryList);
 			document.getElementById("favWord").value = data.activity;
-			console.log(document.getElementById("eventType").value = data.type);
-
-			
-			// correctAnswer = data.results[0].correct_answer;
-			//console.log(correctAnswer)
-			// x = findLongestWord(theQuestion);
-			// getGIF();
+			console.log(data.type);
+			if (categoryList.includes(data.type)) {
+				document.getElementById("eventType").value = data.type;
+			} else {
+				document.getElementById("eventType").value = "random";
+			}
 
 			
 		}
@@ -594,95 +408,6 @@ function getQuestions(){
 	});
 	
 }
-
-$( "#ideaPos" ).click(function() {
-	$("#blakh").fadeOut('slow', function() {
-	});
-
-	$('#useIdea').hide('fast', function() {
-
-	});
-	setTimeout(function(){$("#ideasDiv").fadeIn('slow', function() {
-	})}, 1000);
-
-
-});
-
-$( "#useIdea" ).click(function() {
-	
-	
-	$("#ideasDiv").fadeOut('slow', function() {
-	});
-
-	setTimeout(function(){$("#blakh").fadeIn('slow', function() {
-	})}, 1000);
-
-
-});
-
-
-
-
-
-
-
-$( "#ideaNeed" ).click(function() {
-	getQuestions();
-	document.getElementById("ideaNeed").innerHTML = 'Try again';
-
-	
-	// 	setTimeout(function(){$("#mainList").fadeIn('slow', function() {
-	// })}, 1000);
-
-});
-
-
-$( "#logo" ).click(function() {
-
-    $('#blakh').fadeOut(1000);
-    $('#ideasDiv').fadeOut(1000);
-    setTimeout(function(){
-      
-    $("#mainList").fadeIn(2000)
-	$("#create").fadeIn(2000)}, 1000);
-	location.reload(true);
-
-  
-  
-
-		
-});
-
-
-
-$( "#stats" ).click(function() {
-
-    $('#blakh').fadeOut(1000);
-    $('#mainList').fadeOut(1000);
-    setTimeout(function(){
-    $('#graphic').fadeIn(2000)  
-    $('#oldList').fadeIn(2000)
-    $('#create').fadeIn(2000)
-
-}, 1000);
-	
-  
-  
-
-		
-});
-
-
-$( "#eventFull" ).click(function() {
-
-	console.log("hi");
-
-
-});
-
-
-
-
 
 function makeGraph() {
 var data = [{
@@ -796,4 +521,147 @@ var data = [{
             });
 
 }
+
+
+// button clicks
+$( "#ideaPos" ).click(function() {
+	$("#blakh").fadeOut('slow', function() {
+	});
+
+	$('#useIdea').hide('fast', function() {
+
+	});
+	setTimeout(function(){$("#ideasDiv").fadeIn('slow', function() {
+	})}, 1000);
+
+
+});
+
+$( "#useIdea" ).click(function() {
+	
+	
+	$("#ideasDiv").fadeOut('slow', function() {
+	});
+
+	setTimeout(function(){$("#blakh").fadeIn('slow', function() {
+	})}, 1000);
+
+
+});
+
+
+$( "#createIdea" ).click(function() {
+
+	$.ajax({
+		url: "https://www.boredapi.com/api/activity/",
+		type: 'GET',
+		dataType: 'json',
+		error: function(err){
+			console.log(err);
+		},
+		success: function(data){
+			console.log("WooHoo 2!");
+			document.getElementById("ideaContent").innerHTML = data.activity;
+			document.getElementById("hoverIdea").innerHTML = "Click on Create Event to select different categories";
+
+			
+		}
+		
+	});
+	
+
+});
+
+
+$( "#ideaNeed" ).click(function() {
+	getQuestions();
+	document.getElementById("createIdea").innerHTML = 'Try again';
+
+
+
+});
+
+
+$( "#logo" ).click(function() {
+
+    $('#blakh').fadeOut(1000);
+    $('#ideasDiv').fadeOut(1000);
+    setTimeout(function(){
+      
+    $("#mainList").fadeIn(2000)
+	$("#create").fadeIn(2000)}, 1000);
+	location.reload(true);		
+});
+
+
+
+$( "#stats" ).click(function() {
+
+    $('#blakh').fadeOut(1000);
+    $("#createIdea").fadeOut(1000);
+    $('#mainList').fadeOut(1000);
+    $('#aboutPage').fadeOut(1000);
+    $("#ideaHome").fadeOut(1000);
+    setTimeout(function(){
+    $('#graphic').fadeIn(2000)  
+    $('#oldList').fadeIn(2000)
+    $('#create').fadeIn(2000)
+
+
+}, 1000);
+		
+});
+
+
+
+$( "#createButton" ).click(function() {
+
+	$("#create").fadeOut(2000)
+	$("#graphic").fadeOut(2000)
+	$("#oldList").fadeOut(2000)
+	$("#wrong").fadeOut(500)
+	$("#ideaHome").fadeOut(2000)
+	$("#mainList").fadeOut('slow', function() {
+	});
+	setTimeout(function(){$("#blakh").fadeIn('slow', function() {
+		$("#wrong").fadeIn(1000)
+
+	})
+	}, 1000);
+	
+});
+
+
+$( "#about" ).click(function() {
+
+	$("#create").fadeOut(2000)
+	$("#graphic").fadeOut(2000)
+	$("#oldList").fadeOut(2000)
+	$("#blakh").fadeOut(1000)
+	$("#wrong").fadeOut(500)
+	$("#ideaHome").fadeOut(2000)
+	$("#mainList").fadeOut('slow', function() {
+	});
+	setTimeout(function(){$("#aboutPage").fadeIn('slow', function() {	
+	})
+	}, 1000);
+	
+});
+
+
+
+$( "#join" ).click(function() {
+
+	$("#gridCont").fadeOut('slow', function() {
+	});
+	setTimeout(function(){$("#mainList").fadeIn('slow', function() {
+	})
+	$("#home").fadeIn(2000)}, 1000);
+});
+
+
+
+
+
+
 

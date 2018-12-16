@@ -28,6 +28,14 @@ var cloudant_PASSWORD = '249eeed59d016c01e7cafa0c5fd56e14ecf87ab8';
 
 var cloudant_URL = "https://" + cloudant_USER + ".cloudant.com/" + cloudant_DB;
 
+
+app.use(function(req, res, next) { 
+  res.header("Access-Control-Allow-Origin", "*"); 
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
+  next();
+});
+
+
 /*-----
 ROUTES
 -----*/
@@ -93,28 +101,7 @@ app.get("/api/all", function(req,res){
 	});
 });
 
-//JSON Serving route - Serve SINGLE Word
-app.get("/api/word/:word", function(req, res){
-	var currentWord = req.params.word;
-	// console.log('Making a db request for: ' + currentWord);
-	//Use the Request lib to GET the data in the CouchDB on Cloudant
-	Request.get({
-		url: cloudant_URL+"/_all_docs?include_docs=true",
-		auth: {
-			user: cloudant_KEY,
-			pass: cloudant_PASSWORD
-		},
-		json: true
-	},
-	function (error, response, body){
-		var theRows = body.rows;
-		//Filter the results to match the current word
-		var filteredRows = theRows.filter(function (d) {
-			return d.doc.word == currentWord;
-		});
-		res.json(filteredRows);
-	});
-});
+
 
 //Catch All Route
 app.get("*", function(req, res){

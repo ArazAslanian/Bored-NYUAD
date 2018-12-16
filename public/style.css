@@ -5,71 +5,43 @@
 
 }
 
-td {
-padding: 0 50px 0 50px;
-
-}
-
 body{
-/*  background-image: url("back.jpg");*/
-
   font-size: 18px;
   color:  #666;
-
 }
 
 
-#mainList {
-  overflow: hidden;
-  border-radius: 2px;
+/*present every page*/
+#mainTitle{
+  text-align: center;
+    margin-bottom: 0;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    width: 100%;
 }
 
-#oldList {
-  overflow: hidden;
-  border-radius: 2px;
+#slogan{
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 20px;
+    width: 100%;
 }
 
-.eventFull {
-  margin-bottom: 10px;
-}
-
-input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-
-}
-
-
-#eventType {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-#conMethod {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+#logo {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  padding-left: 10px;
 }
 
 
-#description {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-  width: 350px;
-  height: 150px;
+#wrong {
+  text-align: center;
+  margin-top: 10px;
 }
 
-.textInput {
-  width: 350px;
-}
 
+/*buttons*/
 
 button{
   cursor: pointer;
@@ -80,13 +52,9 @@ button{
 
 } 
 
-.yesRad {
-  border-radius: 6px;
-}
-
-.thisButton {
+/*.thisButton {
   float: right;
-}
+}*/
 
 button:hover {
   background-color: #666;
@@ -97,36 +65,12 @@ button:focus {
 }
 
 
-#container{
-	display: none;
-}
-
-#mainTitle{
-	text-align: center;
-    margin-bottom: 0;
-    margin-top: 30px;
-    padding-bottom: 20px;
-    width: 100%;
-
-
-}
-
-
-#logo {
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  padding-left: 10px;
-
-}
-
-
-
-#stats {
+#upperButtons {
   cursor: pointer;
   position: absolute;
   right: 30px;
   top: 10px;
+  text-align: right;
 }
 
 #create {
@@ -135,72 +79,33 @@ button:focus {
   text-align: right;
 }
 
-.buttonStyle {
-  cursor: pointer;
-  border: 1px solid black;
-}
-
-#eventTitle {
-  display: inline;
-}
-
-#ideaPos {
-  display: inline;
-}
-
-#eventDropdown {
-  display: inline;
-}
-
-#ideaTime {
-  display: inline;
-}
-
-#slogan{
-    text-align: center;
-    margin-top: 0;
-    padding-bottom: 20px;
-    width: 100%;
-
+.yesRad {
+  border-radius: 6px;
 }
 
 
-.cellWidth {
-  width: 300px;
-}
 
-#gridCont {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 30px;
-  padding: 10px;
-  justify-content: center;
 
-}
-
-#gridCont > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid black;
+/*showing bored api on front page*/
+#ideaHome {
   text-align: center;
-  font-size: 30px;
-  opacity: 0.5;
-  margin-top: 100px;
-
+  color: #008080;
+}
+#hoverIdea {
+  font-size: 14px;
+  font-style: italic;
 }
 
 
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+/*Collapsibles*/
+#mainList {
+  overflow: hidden;
+  border-radius: 2px;
 }
 
-input,
-label {
-    margin: .4rem 0;
-}
-
-.note {
-    font-size: .8em;
+#oldList {
+  overflow: hidden;
+  border-radius: 2px;
 }
 
 .collapsible {
@@ -242,8 +147,94 @@ label {
 }
 
 
-/*
-for the bar chart*/
+/*.eventFull {
+  margin-bottom: 10px;
+}*/
+/*create event page*/
+
+
+/*tables*/
+td {
+padding: 0 50px 0 50px;
+}
+
+.cellWidth {
+  width: 300px;
+}
+
+
+
+/*create*/
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+
+}
+
+#eventType {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#conMethod {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+#description {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  width: 350px;
+  height: 150px;
+}
+
+.textInput {
+  width: 350px;
+}
+
+#eventTitle {
+  display: inline;
+}
+
+#ideaPos {
+  display: inline;
+}
+
+#eventDropdown {
+  display: inline;
+}
+
+#ideaTime {
+  display: inline;
+}
+
+
+
+
+/*aboutpage*/
+#aboutPage {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -250px;
+    width: 500px;
+    height: 200px;
+    color: 008080;
+}
+
+
+/*for the bar chart*/
 .bar {
     fill: #008080;
 
